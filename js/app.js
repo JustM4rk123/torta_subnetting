@@ -213,7 +213,7 @@ function render(skipRows) {
         '<span class="sw" style="background:' + COL[i % COL.length] + '"></span>' +
         '<input data-i="' + i + '" data-f="n" value="' + r.n + '" aria-label="Nome rete">' +
         '<input data-i="' + i + '" data-f="ip" value="' + r.ip +
-        '" placeholder="0.0.0.0" inputmode="decimal" aria-label="Indirizzo di sottorete">' +
+        '" placeholder="0.0.0.0" inputmode="url" aria-label="Indirizzo di sottorete">' +
         '<input data-i="' + i + '" data-f="px" value="' + r.px +
         '" placeholder="/24" inputmode="numeric" aria-label="Prefisso">' +
         '<button class="x" type="button" data-del="' + i + '" aria-label="Rimuovi rete">×</button>' +

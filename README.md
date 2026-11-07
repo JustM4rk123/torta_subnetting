@@ -7,7 +7,8 @@ visualizzare la suddivisione di una rete IPv4 in sottoreti.
 
 1. Inserisci l'indirizzo e il prefisso CIDR della **rete di partenza**.
    L'indirizzo deve essere allineato al prefisso. Quando possibile, il primo
-   ottetto dell'indirizzo propone automaticamente un prefisso iniziale.
+   ottetto dell'indirizzo propone automaticamente un prefisso iniziale. I campi
+   IPv4 usano una tastiera mobile con il punto facilmente accessibile.
 2. Per ogni sottorete inserisci un nome, l'indirizzo di rete e il prefisso.
    Il nome può contenere "link" per impostare automaticamente il prefisso
    `/30`, utile per i collegamenti punto-punto.
