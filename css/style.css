@@ -1,0 +1,284 @@
+:root {
+  --bg: #FBFAF7;
+  --fg: #1F2A37;
+  --mut: #5B6675;
+  --line: #D5D9E0;
+  --free: #E6E9EE;
+  --card: #FFFFFF;
+  --err: #B42318;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181F;
+    --fg: #E8ECF2;
+    --mut: #9AA5B5;
+    --line: #323A47;
+    --free: #262D38;
+    --card: #1B2029;
+    --err: #FF8A80;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #14181F;
+  --fg: #E8ECF2;
+  --mut: #9AA5B5;
+  --line: #323A47;
+  --free: #262D38;
+  --card: #1B2029;
+  --err: #FF8A80;
+  color-scheme: dark;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+p.sub {
+  margin: 0 0 20px;
+  color: var(--mut);
+  font-size: 15px;
+}
+
+.base {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: var(--mut);
+  gap: 4px;
+}
+
+input {
+  font: inherit;
+  color: var(--fg);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 9px;
+  min-width: 0;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #378ADD;
+  outline-offset: 1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 14px minmax(70px, 1fr) minmax(120px, 1.6fr) 64px 28px;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.row .sw {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.row input {
+  width: 100%;
+}
+
+.msg {
+  grid-column: 2 / 6;
+  font-size: 13px;
+  margin-top: -2px;
+  min-height: 0;
+}
+
+.msg.err {
+  color: var(--err);
+}
+
+.msg.ok {
+  color: var(--mut);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 14px minmax(70px, 1fr) minmax(120px, 1.6fr) 64px 28px;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--mut);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+button.x {
+  padding: 2px 0;
+  width: 28px;
+  color: var(--mut);
+}
+
+.bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.tot {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--mut);
+}
+
+#fl {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+#fl b {
+  font-weight: 600;
+}
+
+#fl ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+#fl li {
+  margin: 2px 0;
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 16px 12px 28px;
+  }
+
+  .base {
+    align-items: stretch;
+  }
+
+  .base label {
+    flex: 1 1 100%;
+  }
+
+  .base input {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .grid > * {
+    min-width: 0;
+  }
+
+  .head {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 14px minmax(0, 1fr) 72px 36px;
+    grid-template-areas:
+      "sw name name del"
+      ". ip px ."
+      ". msg msg msg";
+    gap: 8px;
+    align-items: center;
+  }
+
+  .row .sw {
+    grid-area: sw;
+  }
+
+  .row input[data-f="n"] {
+    grid-area: name;
+  }
+
+  .row input[data-f="ip"] {
+    grid-area: ip;
+  }
+
+  .row input[data-f="px"] {
+    grid-area: px;
+  }
+
+  .row button.x {
+    grid-area: del;
+    width: 36px;
+    min-height: 44px;
+  }
+
+  .row .msg {
+    grid-area: msg;
+  }
+
+  input,
+  button:not(.x) {
+    min-height: 44px;
+  }
+}

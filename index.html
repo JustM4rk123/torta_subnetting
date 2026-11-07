@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Torta del subnetting</title>
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Torta del subnetting</h1>
+      <p class="sub">
+        Scrivi indirizzo di sottorete e prefisso di ogni rete: la torta mostra
+        come occupi lo spazio e segnala sovrapposizioni e indirizzi non allineati.
+      </p>
+
+      <div class="base">
+        <label>
+          Rete di partenza
+          <input
+            id="bip"
+            value=""
+            placeholder="es. 192.168.1.0"
+            size="15"
+            inputmode="decimal"
+            autocomplete="off"
+          >
+        </label>
+        <label>
+          Prefisso
+          <input
+            id="bpx"
+            value=""
+            placeholder="es. /24"
+            size="3"
+            inputmode="numeric"
+            autocomplete="off"
+          >
+        </label>
+      </div>
+
+      <div class="grid">
+        <div>
+          <svg
+            id="pie"
+            viewBox="0 0 320 320"
+            role="img"
+            aria-label="Torta della divisione della rete"
+          ></svg>
+        </div>
+
+        <div>
+          <div class="head">
+            <span></span>
+            <span>Rete</span>
+            <span>Indirizzo di sottorete</span>
+            <span>Prefisso</span>
+            <span></span>
+          </div>
+          <div id="rows"></div>
+          <div class="bar">
+            <button id="add" type="button">Aggiungi rete</button>
+            <button id="clr" type="button">Svuota indirizzi</button>
+            <button id="reset" type="button">Resetta lista</button>
+          </div>
+          <div class="tot" id="tot"></div>
+          <div id="fl"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
